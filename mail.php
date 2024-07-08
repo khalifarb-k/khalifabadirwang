@@ -1,21 +1,40 @@
 <?php
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-$to = "kelesaremo@gmail.com";
-$subject = "Mail From Website";
+$name = $_POST['Your Name'];
+$email = $_POST['Your Email'];
+$number = $_POST['Your Number'];
+$message = $_POST['Your Message'];
 
-$headers = "From: ".$name. "\r\n" .
-"CC: khalifa.com"
+$mailheader = "From:".$name."<".$email.">\r\n";
 
-$txt = "You have recived an e-mail from ".$name ."\r\nEmail: ".$email ."\r\n
-Message: ". $message;
+$recipient = "kelesaremo@gmail.com";
 
-if($email!=NULL){
-    mail($to, $subject, $txt, $headers);
-}
+mail($recipient, $subject, $message, $mailheader) or die("Error!");
 
-header('location:thankyou.html');
+echo'
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khalifa Badirwang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Thank you for contacting me. I will get back to you as soon as possible!</h1>
+        <p class="back">Go back to the <a href="index.html">homepage</a>.</p>
+        
+    </div>
+</body>
+</html>
+
+
+
+';
+
 
 ?>
